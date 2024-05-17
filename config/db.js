@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+/*const { MongoClient } = require('mongodb');
 
 const URL = 'mongodb+srv://nodeprogramer:F4by5!f5RU7YJ25@cluster0.odjfrd7.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0'
 
@@ -18,4 +18,24 @@ module.exports = {
         })
     },
     getDb: () => dbConnection,
-}
+}*/
+
+const { MongoClient } = require('mongodb');
+
+const URI = 'mongodb+srv://username:password@cluster0.odjfrd7.mongodb.net/sample_mflix?retryWrites=true&w=majority';
+
+let dbConnection;
+
+module.exports = {
+    connectToDb: async () => {
+        try {
+            const client = await MongoClient.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
+            console.log('Connected to MongoDB');
+            dbConnection = client.db();
+        } catch (err) {
+            console.error('Error connecting to MongoDB:', err);
+            throw err;
+        }
+    },
+    getDb: () => dbConnection,
+};
