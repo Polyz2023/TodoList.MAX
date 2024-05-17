@@ -22,7 +22,7 @@ module.exports = {
 
 const { MongoClient } = require('mongodb');
 
-const URI =  'mongodb+srv://nodeprogramer:F4by5!f5RU7YJ25@cluster0.odjfrd7.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0';
+const URI = 'mongodb+srv://username:password@cluster0.odjfrd7.mongodb.net/sample_mflix?retryWrites=true';
 
 let dbConnection;
 
